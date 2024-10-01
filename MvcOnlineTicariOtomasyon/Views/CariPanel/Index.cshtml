@@ -1,0 +1,35 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.NewFolder1.siniflar.Cariler
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+<br />
+<h2>Mvc Online Ticari Otomasyon Cari Bilgi Paneli </h2>
+
+@using (Html.BeginForm("Index2","CariPanel1", FormMethod.Post))
+            {
+                <table class="table table-hover">
+                    <tr>
+                        <td>
+                            <label>Mail adresi :@Context.User.Identity.Name</label>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>@Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.TextBoxFor(x => x.CarSoyad, new { @class = "form-control" })</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.TextBoxFor(x => x.CariSehri, new { @class = "form-control" })</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.TextBoxFor(x => x.CariSifre, new { @class = "form-control" })</td>
+                    </tr>
+                    
+                </table>
+                <button class="btn btb-warning"></button>
+            }
+
+
