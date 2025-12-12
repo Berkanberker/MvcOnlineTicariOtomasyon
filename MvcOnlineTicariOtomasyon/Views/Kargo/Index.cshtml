@@ -1,0 +1,210 @@
+@using MvcOnlineTicariOtomasyon.Models.NewFolder1.siniflar
+@model List<MvcOnlineTicariOtomasyon.Models.NewFolder1.siniflar.Kargo>
+@{
+    ViewBag.Title = "Kargolar";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@Html.AntiForgeryToken()
+
+<!-- Page Header -->
+<div class="page-header">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <h2><i class="fas fa-truck text-primary"></i> Kargo Takibi</h2>
+            <p>Tüm kargo gönderimlerini buradan takip edebilirsiniz</p>
+        </div>
+        <a href="/Kargo/YeniKargo/" class="btn btn-primary">
+            <i class="fas fa-plus-circle"></i> Yeni Kargo Oluştur
+        </a>
+    </div>
+</div>
+
+<!-- Stats Cards -->
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card" style="border-left: 4px solid #667eea;">
+            <div class="card-body py-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="text-muted small">Toplam Kargo</div>
+                        <div class="h4 mb-0 font-weight-bold">@Model.Count</div>
+                    </div>
+                    <div class="text-primary">
+                        <i class="fas fa-boxes fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card" style="border-left: 4px solid #f59e0b;">
+            <div class="card-body py-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="text-muted small">Yolda</div>
+                        <div class="h4 mb-0 font-weight-bold">@Model.Count(x => x.Durum == "Yolda")</div>
+                    </div>
+                    <div class="text-warning">
+                        <i class="fas fa-shipping-fast fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card" style="border-left: 4px solid #11998e;">
+            <div class="card-body py-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="text-muted small">Teslim Edildi</div>
+                        <div class="h4 mb-0 font-weight-bold">@Model.Count(x => x.Durum == "Teslim Edildi")</div>
+                    </div>
+                    <div class="text-success">
+                        <i class="fas fa-check-circle fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card" style="border-left: 4px solid #ff416c;">
+            <div class="card-body py-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="text-muted small">Hazırlanıyor</div>
+                        <div class="h4 mb-0 font-weight-bold">@Model.Count(x => x.Durum == "Hazırlanıyor")</div>
+                    </div>
+                    <div class="text-danger">
+                        <i class="fas fa-clock fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Kargo Table Card -->
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-list"></i> Kargo Listesi</span>
+    </div>
+    <div class="card-body">
+        @if (Model.Count == 0)
+        {
+                <div class="empty-state">
+                    <i class="fas fa-truck"></i>
+                    <h4>Henüz kargo oluşturulmamış</h4>
+                    <p>Yeni bir kargo oluşturarak başlayın</p>
+                    <a href="/Kargo/YeniKargo/" class="btn btn-primary mt-3">
+                        <i class="fas fa-plus"></i> İlk Kargoyu Oluştur
+                    </a>
+                </div>
+        }
+        else
+        {
+                <table class="table data-table">
+                    <thead>
+                        <tr>
+                            <th>Takip No</th>
+                            <th>Alıcı</th>
+                            <th>Şehir</th>
+                            <th>Gönderim Tarihi</th>
+                            <th>Durum</th>
+                            <th class="text-center">İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var k in Model)
+                    {
+                                <tr>
+                                    <td>
+                                        <strong class="text-primary">@k.TakipNo</strong>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <strong>@k.AliciAd</strong>
+                                    @if (!string.IsNullOrEmpty(k.AliciTelefon))
+                                    {
+                                                    <br />
+
+                                        <small class="text-muted"><i class="fas fa-phone"></i> @k.AliciTelefon</small>
+                                    }
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <i class="fas fa-map-marker-alt text-muted"></i>
+                                @k.AliciSehir
+                                    </td>
+                                    <td>
+                                        <small>
+                                            <i class="fas fa-calendar"></i>
+                                    @k.GonderimTarihi.ToString("dd.MM.yyyy")
+                                        </small>
+                                    </td>
+                                    <td>
+                                @if (k.Durum == "Teslim Edildi")
+                                {
+                                                <span class="badge badge-success"><i class="fas fa-check"></i> Teslim Edildi</span>
+                                }
+                                else if (k.Durum == "Yolda")
+                                {
+                                                <span class="badge badge-warning"><i class="fas fa-shipping-fast"></i> Yolda</span>
+                                }
+                                else if (k.Durum == "Kargoya Verildi")
+                                {
+                                                <span class="badge badge-info"><i class="fas fa-box"></i> Kargoya Verildi</span>
+                                }
+                                else
+                                {
+                                                <span class="badge badge-secondary"><i class="fas fa-clock"></i> Hazırlanıyor</span>
+                                }
+                                    </td>
+                                    <td>
+                                        <div class="action-btns justify-content-center">
+                                            <div class="dropdown">
+                                                <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    <i class="fas fa-sync-alt"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="/Kargo/DurumGuncelle/@k.KargoId?durum=Hazırlanıyor">
+                                                        <i class="fas fa-clock text-secondary"></i> Hazırlanıyor
+                                                    </a>
+                                                    <a class="dropdown-item" href="/Kargo/DurumGuncelle/@k.KargoId?durum=Kargoya Verildi">
+                                                        <i class="fas fa-box text-info"></i> Kargoya Verildi
+                                                    </a>
+                                                    <a class="dropdown-item" href="/Kargo/DurumGuncelle/@k.KargoId?durum=Yolda">
+                                                        <i class="fas fa-shipping-fast text-warning"></i> Yolda
+                                                    </a>
+                                                    <a class="dropdown-item" href="/Kargo/DurumGuncelle/@k.KargoId?durum=Teslim Edildi">
+                                                        <i class="fas fa-check text-success"></i> Teslim Edildi
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <a href="/Kargo/KargoGetir/@k.KargoId" class="btn btn-sm btn-success" title="Düzenle">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <button type="button" class="btn btn-sm btn-danger" 
+                                                    onclick="confirmDelete('/Kargo/KargoSil/@k.KargoId', '@k.TakipNo')" 
+                                                    title="Sil">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                    }
+                    </tbody>
+                </table>
+        }
+    </div>
+</div>
+
+<style>
+    .badge-warning {
+        background: #f59e0b !important;
+        color: #fff !important;
+    }
+    .badge-secondary {
+        background: #6c757d !important;
+    }
+</style>

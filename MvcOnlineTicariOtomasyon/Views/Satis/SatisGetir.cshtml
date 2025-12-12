@@ -9,8 +9,7 @@
 
 @using (Html.BeginForm("SatisGuncelle", "Satis", FormMethod.Post))
 {
-
-
+    @Html.AntiForgeryToken()
 
     @Html.HiddenFor(x => x.Satisid)
 

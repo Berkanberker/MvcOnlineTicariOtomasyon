@@ -143,6 +143,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\istatistikController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
+    <Compile Include="Controllers\KargoController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
     <Compile Include="Controllers\SatisController.cs" />
@@ -163,6 +164,7 @@
     <Compile Include="Models\NewFolder1\siniflar\Faturalar.cs" />
     <Compile Include="Models\NewFolder1\siniflar\Gider.cs" />
     <Compile Include="Models\NewFolder1\siniflar\kategori.cs" />
+    <Compile Include="Models\NewFolder1\siniflar\Kargo.cs" />
     <Compile Include="Models\NewFolder1\siniflar\Personel.cs" />
     <Compile Include="Models\NewFolder1\siniflar\SatisHareket.cs" />
     <Compile Include="Models\NewFolder1\siniflar\SinifGrup.cs" />

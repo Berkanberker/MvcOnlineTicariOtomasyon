@@ -1,77 +1,159 @@
 ﻿@using MvcOnlineTicariOtomasyon.Models.NewFolder1.siniflar
 @model List<SatisHareket>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Satışlar";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
-<br />
-<table id="tbl1" class="table table-bordered" style="margin-top:20px">
-    <thead>
-        <tr>
-            <th>ID </th>
-            <th>Ürün</th>
-            <th>Cari</th>
-            <th>Personel</th>
-            <th>Adet</th>
-            <th>Fiyat</th>
-            <th>Toplam</th>
-            <th>Tarih</th>
-            <th>Güncelle</th>
-            <th>Detaylar</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var k in Model)
+
+@Html.AntiForgeryToken()
+
+<!-- Page Header -->
+<div class="page-header">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <h2><i class="fas fa-shopping-cart text-primary"></i> Satış Yönetimi</h2>
+            <p>Tüm satış işlemlerini buradan takip edebilirsiniz</p>
+        </div>
+        <a href="/Satis/YeniSatis" class="btn btn-primary">
+            <i class="fas fa-plus-circle"></i> Yeni Satış Yap
+        </a>
+    </div>
+</div>
+
+<!-- Stats Cards -->
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card" style="border-left: 4px solid #667eea;">
+            <div class="card-body py-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="text-muted small">Toplam Satış</div>
+                        <div class="h4 mb-0 font-weight-bold">@Model.Count</div>
+                    </div>
+                    <div class="text-primary">
+                        <i class="fas fa-receipt fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card" style="border-left: 4px solid #11998e;">
+            <div class="card-body py-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="text-muted small">Toplam Tutar</div>
+                        <div class="h4 mb-0 font-weight-bold">₺@String.Format("{0:N2}", Model.Sum(x => x.ToplamTutar))</div>
+                    </div>
+                    <div class="text-success">
+                        <i class="fas fa-lira-sign fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card" style="border-left: 4px solid #f5576c;">
+            <div class="card-body py-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="text-muted small">Toplam Ürün</div>
+                        <div class="h4 mb-0 font-weight-bold">@Model.Sum(x => x.Adet)</div>
+                    </div>
+                    <div class="text-danger">
+                        <i class="fas fa-boxes fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sales Table Card -->
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-list"></i> Satış Listesi</span>
+        <span class="badge badge-success">@Model.Count işlem</span>
+    </div>
+    <div class="card-body">
+        @if (Model.Count == 0)
         {
-            <tr>
-                <td>@k.Satisid</td>
-                <td>@k.Urun.UrunAd</td>
-                <td>@k.Cariler.CariAd @k.Cariler.CarSoyad</td>
-                <td>@k.Personel.PersonelAd @k.Personel.PersonelSoyad</td>
-                <td>@k.Adet</td>
-                <td>@k.Fiyat</td>
-                <td>@k.ToplamTutar</td>
-                <td>@k.Tarih</td>
-                <td><a href="/Satis/SatisGetir/@k.Satisid" class="btn btn-warning">Güncelle</a></td>
-                <td><a href="/Satis/SatisDetay/@k.Satisid" class="btn btn-default" style="background-color:lightcoral;color:white">Detaylar</a></td>
-            </tr>
+            <div class="empty-state">
+                <i class="fas fa-shopping-basket"></i>
+                <h4>Henüz satış yapılmamış</h4>
+                <p>Yeni bir satış yaparak başlayın</p>
+                <a href="/Satis/YeniSatis" class="btn btn-primary mt-3">
+                    <i class="fas fa-plus"></i> İlk Satışı Yap
+                </a>
+            </div>
         }
-    </tbody>
-</table>
-<a href="/Satis/YeniSatis" class="btn btn-info">Yeni Satış Yap</a>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" />
-<link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
-<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap5.min.css" rel="stylesheet" />
-
-<script>
-    $(document).ready(function () {
-        $('#tbl1').DataTable({
-            "responsive": true,
-            "language": {
-                "emptyTable": "Gösterilecek ver yok.",
-                "processing": "Veriler yükleniyor",
-                "sDecimal": ".",
-                "sInfo": "_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor",
-                "sInfoFiltered": "(_MAX_ kayıt içerisinden bulunan)",
-                "sLengthMenu": "Sayfada _MENU_ kayıt göster",
-                "sLoadingRecords": "Yükleniyor...",
-                "sSearch": "Ara:",
-                "sZeroRecords": "Eşleşen kayıt bulunamadı",
-                "oPaginate": {
-                    "sFirst": "İlk",
-                    "sLast": "Son",
-                    "sNext": "Sonraki",
-                    "sPrevious": "Önceki"
-                },
-                "oAria": {
-                    "sSortAscending": ": artan sütun sıralamasını aktifleştir",
-                    "sSortDescending": ": azalan sütun sıralamasını aktifleştir"
-                }
-            }
-        });
-    });
-</script>
+        else
+        {
+            <table class="table data-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ürün</th>
+                        <th>Müşteri</th>
+                        <th>Personel</th>
+                        <th>Adet</th>
+                        <th>Fiyat</th>
+                        <th>Toplam</th>
+                        <th>Tarih</th>
+                        <th class="text-center">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var k in Model)
+                    {
+                        <tr>
+                            <td><span class="badge badge-secondary">#@k.Satisid</span></td>
+                            <td>
+                                <strong>@(k.Urun != null ? k.Urun.UrunAd : "-")</strong>
+                            </td>
+                            <td>
+                                @if (k.Cariler != null)
+                                {
+                                    <span>@k.Cariler.CariAd @k.Cariler.CarSoyad</span>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">-</span>
+                                }
+                            </td>
+                            <td>
+                                @if (k.Personel != null)
+                                {
+                                    <span class="badge badge-info">@k.Personel.PersonelAd</span>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">-</span>
+                                }
+                            </td>
+                            <td><span class="badge badge-primary">@k.Adet</span></td>
+                            <td>₺@String.Format("{0:N2}", k.Fiyat)</td>
+                            <td><strong class="text-success">₺@String.Format("{0:N2}", k.ToplamTutar)</strong></td>
+                            <td>
+                                <small class="text-muted">
+                                    <i class="fas fa-calendar-alt mr-1"></i>
+                                    @k.Tarih.ToString("dd.MM.yyyy")
+                                </small>
+                            </td>
+                            <td>
+                                <div class="action-btns justify-content-center">
+                                    <a href="/Satis/SatisDetay/@k.Satisid" class="btn btn-sm btn-info" title="Detay">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="/Satis/SatisGetir/@k.Satisid" class="btn btn-sm btn-success" title="Düzenle">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

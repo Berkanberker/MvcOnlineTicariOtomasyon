@@ -7,26 +7,21 @@ using MvcOnlineTicariOtomasyon.Models.NewFolder1.siniflar;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class YapilacakController : Controller
     {
-        // GET: Yapilacak
-        Context c = new Context();
         public ActionResult Index()
         {
-            var deger1 = c.Carilers.Count().ToString();
-            ViewBag.d1 = deger1;
-            var deger2 = c.Uruns.Count().ToString();
-            ViewBag.d2 = deger2;
-            var deger3 = c.Kategoris.Count().ToString();
-            ViewBag.d3 = deger3;
-            var deger4 = (from x in c.Carilers select x.CariSehri).Distinct().Count().ToString();
-            ViewBag.d4 = deger4;
+            using (var c = new Context())
+            {
+                ViewBag.d1 = c.Carilers.Count().ToString();
+                ViewBag.d2 = c.Uruns.Count().ToString();
+                ViewBag.d3 = c.Kategoris.Count().ToString();
+                ViewBag.d4 = (from x in c.Carilers select x.CariSehri).Distinct().Count().ToString();
 
-
-            var yapilacaklar = c.Yapilacaks.ToList();
-            return View(yapilacaklar);
-
-
+                var yapilacaklar = c.Yapilacaks.ToList();
+                return View(yapilacaklar);
+            }
         }
     }
 }

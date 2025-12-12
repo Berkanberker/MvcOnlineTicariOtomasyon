@@ -5,10 +5,17 @@
 }
 
 <br />
-<h2>Cari Güncelleme Ekranı</h2>
+<h2>Personel Güncelleme Ekranı</h2>
 <br />
+
+@if (TempData["Hata"] != null)
+{
+    <div class="alert alert-danger">@TempData["Hata"]</div>
+}
+
 @using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    @Html.AntiForgeryToken()
     <div class="form-group">
         @Html.HiddenFor(x => x.Personelid)
         @Html.LabelFor(x => x.PersonelAd)
@@ -18,7 +25,7 @@
         @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
         <br />
         @Html.LabelFor(x => x.PersonelGorsel)
-        <input type="file" name="PersonelGorsel" />
+        <input type="file" name="PersonelGorsel" class="form-control" />
         <br />
         @Html.LabelFor(x => x.Departmanid)
         @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
@@ -26,3 +33,4 @@
         <button class="btn btn-default" style="background-color:yellowgreen">Güncelle</button>
     </div>
 }
+

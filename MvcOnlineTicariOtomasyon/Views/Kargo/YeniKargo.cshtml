@@ -1,0 +1,62 @@
+@using MvcOnlineTicariOtomasyon.Models.NewFolder1.siniflar
+@model MvcOnlineTicariOtomasyon.Models.NewFolder1.siniflar.Kargo
+@{
+    ViewBag.Title = "Yeni Kargo";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<!-- Page Header -->
+<div class="page-header">
+    <h2><i class="fas fa-truck text-primary"></i> Yeni Kargo Oluştur</h2>
+    <p>Yeni bir kargo gönderimi oluşturun</p>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-plus-circle"></i> Kargo Bilgileri
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("YeniKargo", "Kargo", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Alıcı Adı Soyadı *</label>
+                        @Html.TextBoxFor(m => m.AliciAd, new { @class = "form-control", placeholder = "Alıcı adı soyadı", required = "required" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> Telefon</label>
+                        @Html.TextBoxFor(m => m.AliciTelefon, new { @class = "form-control", placeholder = "05XX XXX XX XX" })
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label><i class="fas fa-city"></i> Şehir</label>
+                        @Html.TextBoxFor(m => m.AliciSehir, new { @class = "form-control", placeholder = "Şehir" })
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label><i class="fas fa-map-marker-alt"></i> Adres *</label>
+                @Html.TextAreaFor(m => m.AliciAdres, new { @class = "form-control", placeholder = "Teslimat adresi", rows = "3", required = "required" })
+            </div>
+            
+            <div class="d-flex justify-content-between mt-4">
+                <a href="/Kargo/Index/" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> İptal
+                </a>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i> Kargo Oluştur
+                </button>
+            </div>
+        }
+    </div>
+</div>

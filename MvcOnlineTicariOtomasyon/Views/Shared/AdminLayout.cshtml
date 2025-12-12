@@ -4,173 +4,624 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Mvc5 ile Online Ticari Otomasyon</title>
+    <title>Ticari Otomasyon</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Core CSS -->
     <link href="~/web/dist/css/styles.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+    
+    <!-- DataTables CSS -->
+    <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap4.min.css" rel="stylesheet" />
+    
+    <!-- Toastr CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    
+    <!-- Custom Modern Styles -->
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --danger-gradient: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+            --warning-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --dark-bg: #1a1a2e;
+            --card-bg: #ffffff;
+            --shadow-sm: 0 2px 10px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.15);
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f0f2f5;
+        }
+
+        /* Modern Card Styling */
+        .card, .modern-card {
+            background: var(--card-bg);
+            border: none;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover, .modern-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            background: transparent;
+            border-bottom: 1px solid #f0f0f0;
+            padding: 20px 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        /* Modern Tables */
+        .table {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .table thead th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 15px 20px;
+            border: none;
+        }
+
+        .table thead th:first-child {
+            border-radius: 10px 0 0 0;
+        }
+
+        .table thead th:last-child {
+            border-radius: 0 10px 0 0;
+        }
+
+        .table tbody tr {
+            transition: all 0.2s ease;
+        }
+
+        .table tbody tr:hover {
+            background: #f8f9ff;
+            transform: scale(1.01);
+        }
+
+        .table tbody td {
+            padding: 15px 20px;
+            vertical-align: middle;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        /* Modern Buttons */
+        .btn {
+            border-radius: 8px;
+            font-weight: 500;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .btn-success {
+            background: var(--success-gradient);
+            box-shadow: 0 4px 15px rgba(17, 153, 142, 0.4);
+        }
+
+        .btn-danger {
+            background: var(--danger-gradient);
+            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+        }
+
+        .btn-warning {
+            background: var(--warning-gradient);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.8rem;
+        }
+
+        /* Action Buttons Group */
+        .action-btns {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-btns .btn {
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-bottom: 30px;
+        }
+
+        .page-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 5px;
+        }
+
+        .page-header p {
+            color: #636e72;
+            font-size: 0.95rem;
+        }
+
+        /* DataTables Styling */
+        .dataTables_wrapper .dataTables_filter input {
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            padding: 8px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .dataTables_wrapper .dataTables_filter input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            outline: none;
+        }
+
+        .dataTables_wrapper .dataTables_length select {
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            padding: 5px 10px;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+            background: var(--primary-gradient) !important;
+            border: none !important;
+            color: #fff !important;
+            border-radius: 8px;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            background: #f0f0f0 !important;
+            border: none !important;
+            color: #333 !important;
+        }
+
+        /* Form Controls */
+        .form-control {
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Sidebar Improvements */
+        .sb-sidenav-dark {
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .sb-sidenav-dark .nav-link {
+            color: rgba(255,255,255,0.7);
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 2px 10px;
+        }
+
+        .sb-sidenav-dark .nav-link:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+            transform: translateX(5px);
+        }
+
+        .sb-sidenav-dark .sb-sidenav-menu-heading {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+
+        /* Badge Styling */
+        .badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.75rem;
+        }
+
+        .badge-success {
+            background: rgba(17, 153, 142, 0.15);
+            color: #11998e;
+        }
+
+        .badge-danger {
+            background: rgba(255, 65, 108, 0.15);
+            color: #ff416c;
+        }
+
+        .badge-warning {
+            background: rgba(245, 158, 11, 0.15);
+            color: #f59e0b;
+        }
+
+        /* Status Indicators */
+        .status-active {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-active::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @@keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #636e72;
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            color: #dfe6e9;
+            margin-bottom: 20px;
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            display: none;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #f0f0f0;
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @@keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Footer */
+        footer {
+            background: #fff !important;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        /* Navbar */
+        .sb-topnav {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+        }
+
+        .sb-topnav .navbar-brand {
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
 </head>
 <body>
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">Ticari Otomasyon</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#">
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+
+    <nav class="sb-topnav navbar navbar-expand navbar-dark">
+        <a class="navbar-brand" href="/istatistik/Index/">
+            <i class="fas fa-chart-line"></i> Ticari Otomasyon
+        </a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle">
             <i class="fas fa-bars"></i>
-        </button><!-- Navbar Search-->
-        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-            <div class="input-group">
-                <input class="form-control" type="text" placeholder="Aranacak Kelimeyi Girin..." aria-label="Search" aria-describedby="basic-addon2" />
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
-        </form>
+        </button>
+        
         <!-- Navbar-->
         <ul class="navbar-nav ml-auto ml-md-0">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#">Ayarlar</a><a class="dropdown-item" href="#">Hesabım</a>
+                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown">
+                    <i class="fas fa-user-circle fa-lg"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Ayarlar</a>
+                    <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Hesabım</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="login.html">Çıkış Yap</a>
+                    <a class="dropdown-item text-danger" href="/Login/LogOut/">
+                        <i class="fas fa-sign-out-alt mr-2"></i>Çıkış Yap
+                    </a>
                 </div>
             </li>
         </ul>
     </nav>
+
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <div class="sb-sidenav-menu-heading">İşlemler</div>
+                        <div class="sb-sidenav-menu-heading">ANA MENÜ</div>
+                        <a class="nav-link" href="/istatistik/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-pie"></i></div>
+                            Dashboard
+                        </a>
+                        
+                        <div class="sb-sidenav-menu-heading">YÖNETİM</div>
                         <a class="nav-link" href="/Kategori/Index/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-tags"></i></div>
                             Kategoriler
                         </a>
                         <a class="nav-link" href="/Urun/Index/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-flask"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
                             Ürünler
+                        </a>
+                        <a class="nav-link" href="/Cari/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                            Cariler
+                        </a>
+                        <a class="nav-link" href="/Personel/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-tie"></i></div>
+                            Personeller
                         </a>
                         @if (User.IsInRole("A"))
                         {
                             <a class="nav-link" href="/Departman/Index/">
-                                <div class="sb-nav-link-icon"><i class="fas fa-bars"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
                                 Departmanlar
                             </a>
                         }
-                        <a class="nav-link" href="/Cari/Index/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                            Cariler
-                        </a>
-                        <a class="nav-link" href="/Personel/Index/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-street-view"></i></div>
-                            Personeller
-                        </a>
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-pie"></i></div>
-                            Grafikler
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                    Grafik Türleri
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="/Grafik/Index5/">Pie Grafik</a>
-                                        <a class="nav-link" href="/Grafik/Index6/">Line Grafik</a>
-                                        <a class="nav-link" href="/Grafik/Index7/">Column Grafik</a>
-                                    </nav>
-                                </div>
-                            </nav>
-                        </div>
-                        <div class="sb-sidenav-menu-heading">Rapor & fatura</div>
+
+                        <div class="sb-sidenav-menu-heading">İŞLEMLER</div>
                         <a class="nav-link" href="/Satis/Index/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-taxi"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
                             Satışlar
                         </a>
                         <a class="nav-link" href="/Fatura/Index/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-calendar"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-file-invoice"></i></div>
                             Faturalar
                         </a>
-                        <a class="nav-link" href="/Fatura/Dinamik/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-procedures"></i></div>
-                            Dinamik Faturalar
-                        </a>
-                        <a class="nav-link" href="/Personel/PersonelListe/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-people-carry"></i></div>
-                            Personel Tablosu
-                        </a>
-                        <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-pie"></i></div>
-                            Giderler
-                        </a>
                         <a class="nav-link" href="/Kargo/Index/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-gift"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
                             Kargolar
                         </a>
+
+                        <div class="sb-sidenav-menu-heading">RAPORLAR</div>
                         <a class="nav-link" href="/Urun/UrunListesi">
-                            <div class="sb-nav-link-icon"><i class="fas fa-print"></i></div>
-                            Pdf ~ Excel
+                            <div class="sb-nav-link-icon"><i class="fas fa-file-pdf"></i></div>
+                            PDF / Excel
                         </a>
-                        <a class="nav-link" href="/Alertler/Index">
-                            <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
-                            Alertler
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGraphs">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+                            Grafikler
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <a class="nav-link" href="/istatistik/Index/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-database"></i></div>
-                            İstatistikler
-                        </a>
-                        <a class="nav-link" href="/Galeri/Index/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-camera-retro"></i></div>
-                            Galeri
-                        </a>
-                        <a class="nav-link" href="/UrunDetay/Index/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-university"></i></div>
-                            Ürün Detay
-                        </a>
-                        @if (User.IsInRole("A"))
-                        {
-                            <a class="nav-link" href="/istatistik/kolaytablolar/">
-                                <div class="sb-nav-link-icon"><i class="fas fa-car"></i></div>
-                                Hızlı Bakış
-                            </a>
-                        }
+                        <div class="collapse" id="collapseGraphs">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/Grafik/Index5/">Pie Grafik</a>
+                                <a class="nav-link" href="/Grafik/Index6/">Line Grafik</a>
+                                <a class="nav-link" href="/Grafik/Index7/">Column Grafik</a>
+                            </nav>
+                        </div>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    Start Bootstrap
+                    <div class="small">Giriş yapan:</div>
+                    @if (Session["KullaniciAd"] != null)
+                    {
+                        <span>@Session["KullaniciAd"]</span>
+                    }
+                    else
+                    {
+                        <span>Kullanıcı</span>
+                    }
                 </div>
             </nav>
         </div>
+
         <div id="layoutSidenav_content">
             <main>
-                <div class="container-fluid">
+                <div class="container-fluid py-4">
                     @RenderBody()
                 </div>
             </main>
-            <footer class="py-4 bg-light mt-auto">
+            <footer class="py-4 mt-auto">
                 <div class="container-fluid">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2019</div>
+                        <div class="text-muted">© 2024 Ticari Otomasyon. Tüm hakları saklıdır.</div>
                         <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
+                            <a href="#" class="text-muted">Gizlilik Politikası</a>
+                            <span class="mx-1">·</span>
+                            <a href="#" class="text-muted">Kullanım Şartları</a>
                         </div>
                     </div>
                 </div>
             </footer>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+    <!-- Core Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="~/web/dist/js/scripts.js"></script>
+
+    <!-- DataTables -->
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Toastr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        // Toastr Configuration
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+
+        // Show TempData messages as toasts
+        @if (TempData["Basarili"] != null)
+        {
+            <text>toastr.success('@TempData["Basarili"]');</text>
+        }
+        @if (TempData["Hata"] != null)
+        {
+            <text>toastr.error('@TempData["Hata"]');</text>
+        }
+        @if (TempData["Uyari"] != null)
+        {
+            <text>toastr.warning('@TempData["Uyari"]');</text>
+        }
+
+        // DataTables Turkish Language
+        var dataTableTurkish = {
+            "emptyTable": "Tabloda veri bulunmuyor",
+            "info": "_TOTAL_ kayıttan _START_ - _END_ arası gösteriliyor",
+            "infoEmpty": "Kayıt yok",
+            "infoFiltered": "(_MAX_ kayıt içinden filtrelendi)",
+            "lengthMenu": "_MENU_ kayıt göster",
+            "loadingRecords": "Yükleniyor...",
+            "processing": "İşleniyor...",
+            "search": "Ara:",
+            "zeroRecords": "Eşleşen kayıt bulunamadı",
+            "paginate": {
+                "first": "İlk",
+                "last": "Son",
+                "next": "Sonraki",
+                "previous": "Önceki"
+            }
+        };
+
+        // Initialize DataTables on all tables with class 'data-table'
+        $(document).ready(function() {
+            $('.data-table').DataTable({
+                responsive: true,
+                language: dataTableTurkish,
+                pageLength: 10,
+                dom: '<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>' +
+                     '<"row"<"col-sm-12"tr>>' +
+                     '<"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"p>>',
+                order: [[0, 'desc']]
+            });
+        });
+
+        // SweetAlert Delete Confirmation
+        function confirmDelete(url, itemName) {
+            Swal.fire({
+                title: 'Emin misiniz?',
+                text: itemName + ' silinecek. Bu işlem geri alınamaz!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#ff416c',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: '<i class="fas fa-trash"></i> Evet, Sil',
+                cancelButtonText: '<i class="fas fa-times"></i> İptal',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Create and submit form
+                    var form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = url;
+                    
+                    // Add anti-forgery token
+                    var token = document.querySelector('input[name="__RequestVerificationToken"]');
+                    if (token) {
+                        var tokenInput = document.createElement('input');
+                        tokenInput.type = 'hidden';
+                        tokenInput.name = '__RequestVerificationToken';
+                        tokenInput.value = token.value;
+                        form.appendChild(tokenInput);
+                    }
+                    
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            });
+            return false;
+        }
+
+        // Show loading overlay on form submit
+        $('form').on('submit', function() {
+            $('#loadingOverlay').fadeIn(200);
+        });
+    </script>
+
+    @RenderSection("scripts", required: false)
 </body>
 </html>

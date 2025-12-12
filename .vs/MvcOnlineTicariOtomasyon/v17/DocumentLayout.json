@@ -1,29 +1,65 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\TUNABERUT\\Desktop\\projee\\MvcOnlineTicariOtomasyon\\",
+  "WorkspaceRootPath": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|c:\\users\\tunaberut\\desktop\\projee\\mvconlineticariotomasyon\\mvconlineticariotomasyon\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|solutionrelative:mvconlineticariotomasyon\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|c:\\users\\tunaberut\\source\\repos\\mvconlineticariotomasyon\\mvconlineticariotomasyon\\views\\kargo\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|solutionrelative:mvconlineticariotomasyon\\views\\kargo\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|c:\\users\\tunaberut\\desktop\\projee\\mvconlineticariotomasyon\\mvconlineticariotomasyon\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|solutionrelative:mvconlineticariotomasyon\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|c:\\users\\tunaberut\\source\\repos\\mvconlineticariotomasyon\\mvconlineticariotomasyon\\models\\newfolder1\\siniflar\\context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|solutionrelative:mvconlineticariotomasyon\\models\\newfolder1\\siniflar\\context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|c:\\users\\tunaberut\\desktop\\projee\\mvconlineticariotomasyon\\mvconlineticariotomasyon\\views\\galeri\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\mvconlineticariotomasyon\\views\\departman\\departmanekle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|solutionrelative:mvconlineticariotomasyon\\views\\departman\\departmanekle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\mvconlineticariotomasyon\\views\\cari\\musterisatis.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|solutionrelative:mvconlineticariotomasyon\\views\\cari\\musterisatis.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\mvconlineticariotomasyon\\views\\galeri\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|solutionrelative:mvconlineticariotomasyon\\views\\galeri\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|c:\\users\\tunaberut\\desktop\\projee\\mvconlineticariotomasyon\\mvconlineticariotomasyon\\views\\istatistik\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\mvconlineticariotomasyon\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|solutionrelative:mvconlineticariotomasyon\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\mvconlineticariotomasyon\\views\\personel\\personelekle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|solutionrelative:mvconlineticariotomasyon\\views\\personel\\personelekle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\mvconlineticariotomasyon\\controllers\\departmancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|solutionrelative:mvconlineticariotomasyon\\controllers\\departmancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\mvconlineticariotomasyon\\controllers\\galericontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|solutionrelative:mvconlineticariotomasyon\\controllers\\galericontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\mvconlineticariotomasyon\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|solutionrelative:mvconlineticariotomasyon\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\mvconlineticariotomasyon\\views\\urundetay\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|solutionrelative:mvconlineticariotomasyon\\views\\urundetay\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\mvconlineticariotomasyon\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|solutionrelative:mvconlineticariotomasyon\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\mvconlineticariotomasyon\\views\\istatistik\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|solutionrelative:mvconlineticariotomasyon\\views\\istatistik\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|c:\\users\\tunaberut\\desktop\\projee\\mvconlineticariotomasyon\\mvconlineticariotomasyon\\views\\alertler\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\mvconlineticariotomasyon\\views\\alertler\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|solutionrelative:mvconlineticariotomasyon\\views\\alertler\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|c:\\users\\tunaberut\\desktop\\projee\\mvconlineticariotomasyon\\mvconlineticariotomasyon\\controllers\\istatistikcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\mvconlineticariotomasyon\\controllers\\istatistikcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C1795ED7-B69B-4F46-8091-3ABC87FFF885}|MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon.csproj|solutionrelative:mvconlineticariotomasyon\\controllers\\istatistikcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -34,89 +70,205 @@
       "DocumentGroups": [
         {
           "DockedHeight": 72,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\TUNABERUT\\Desktop\\projee\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\TUNABERUT\\Desktop\\projee\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Controllers\\LoginController.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAACIAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T13:12:59.445Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Kargo\\Index.cshtml",
+              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Views\\Kargo\\Index.cshtml",
+              "ToolTip": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Kargo\\Index.cshtml",
+              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Views\\Kargo\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-12T22:04:24.003Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\TUNABERUT\\Desktop\\projee\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Login\\Index.cshtml",
-              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Views\\Login\\Index.cshtml",
-              "ToolTip": "C:\\Users\\TUNABERUT\\Desktop\\projee\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Login\\Index.cshtml",
-              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Views\\Login\\Index.cshtml",
-              "ViewState": "AQIAAIkAAAAAAAAAAAAwwJEAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-01T13:01:11.836Z",
+              "Title": "context.cs",
+              "DocumentMoniker": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Models\\NewFolder1\\siniflar\\context.cs",
+              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Models\\NewFolder1\\siniflar\\context.cs",
+              "ToolTip": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Models\\NewFolder1\\siniflar\\context.cs",
+              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Models\\NewFolder1\\siniflar\\context.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAEwBUAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T21:53:49.798Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\TUNABERUT\\Desktop\\projee\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Galeri\\Index.cshtml",
-              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Views\\Galeri\\Index.cshtml",
-              "ToolTip": "C:\\Users\\TUNABERUT\\Desktop\\projee\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Galeri\\Index.cshtml",
-              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Views\\Galeri\\Index.cshtml",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAB0AAABBAAAA",
+              "Title": "DepartmanEkle.cshtml",
+              "DocumentMoniker": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Departman\\DepartmanEkle.cshtml",
+              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Views\\Departman\\DepartmanEkle.cshtml",
+              "ToolTip": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Departman\\DepartmanEkle.cshtml",
+              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Views\\Departman\\DepartmanEkle.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-01T12:50:53.468Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-12T21:26:29.239Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\TUNABERUT\\Desktop\\projee\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\istatistik\\Index.cshtml",
-              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Views\\istatistik\\Index.cshtml",
-              "ToolTip": "C:\\Users\\TUNABERUT\\Desktop\\projee\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\istatistik\\Index.cshtml",
-              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Views\\istatistik\\Index.cshtml",
-              "ViewState": "AQIAACgAAAAAAAAAAAAqwLwAAAAsAAAA",
+              "Title": "MusteriSatis.cshtml",
+              "DocumentMoniker": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Cari\\MusteriSatis.cshtml",
+              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Views\\Cari\\MusteriSatis.cshtml",
+              "ToolTip": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Cari\\MusteriSatis.cshtml",
+              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Views\\Cari\\MusteriSatis.cshtml",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAnwB0AAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-30T22:41:23.74Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-12T21:17:55.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DepartmanController.cs",
+              "DocumentMoniker": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Controllers\\DepartmanController.cs",
+              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Controllers\\DepartmanController.cs",
+              "ToolTip": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Controllers\\DepartmanController.cs",
+              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Controllers\\DepartmanController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T20:05:23.027Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GaleriController.cs",
+              "DocumentMoniker": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Controllers\\GaleriController.cs",
+              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Controllers\\GaleriController.cs",
+              "ToolTip": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Controllers\\GaleriController.cs",
+              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Controllers\\GaleriController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T20:05:21.285Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PersonelEkle.cshtml",
+              "DocumentMoniker": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Personel\\PersonelEkle.cshtml",
+              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Views\\Personel\\PersonelEkle.cshtml",
+              "ToolTip": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Personel\\PersonelEkle.cshtml",
+              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Views\\Personel\\PersonelEkle.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-12T20:04:42.819Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\UrunDetay\\Index.cshtml",
+              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Views\\UrunDetay\\Index.cshtml",
+              "ToolTip": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\UrunDetay\\Index.cshtml",
+              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Views\\UrunDetay\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-12T19:29:51.349Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-12T19:29:31.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACIAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T13:12:59.445Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "istatistikController.cs",
-              "DocumentMoniker": "C:\\Users\\TUNABERUT\\Desktop\\projee\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Controllers\\istatistikController.cs",
-              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Controllers\\istatistikController.cs",
-              "ToolTip": "C:\\Users\\TUNABERUT\\Desktop\\projee\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Controllers\\istatistikController.cs",
-              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Controllers\\istatistikController.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAwBUAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-30T22:40:52.076Z",
-              "EditorCaption": ""
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Login\\Index.cshtml",
+              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Views\\Login\\Index.cshtml",
+              "ToolTip": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Login\\Index.cshtml",
+              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Views\\Login\\Index.cshtml",
+              "ViewState": "AgIAAMgBAAAAAAAAAAAwwMoBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-01T13:01:11.836Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\TUNABERUT\\Desktop\\projee\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Alertler\\Index.cshtml",
-              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Views\\Alertler\\Index.cshtml",
-              "ToolTip": "C:\\Users\\TUNABERUT\\Desktop\\projee\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Alertler\\Index.cshtml",
-              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Views\\Alertler\\Index.cshtml",
-              "ViewState": "AQIAABcAAAAAAAAAAAAcwCsAAAAAAAAA",
+              "DocumentMoniker": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Galeri\\Index.cshtml",
+              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Views\\Galeri\\Index.cshtml",
+              "ToolTip": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Galeri\\Index.cshtml",
+              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Views\\Galeri\\Index.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB0AAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-30T22:29:01.069Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-01T12:50:53.468Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\istatistik\\Index.cshtml",
+              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Views\\istatistik\\Index.cshtml",
+              "ToolTip": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\istatistik\\Index.cshtml",
+              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Views\\istatistik\\Index.cshtml",
+              "ViewState": "AgIAACgAAAAAAAAAAAAqwLwAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-30T22:41:23.74Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "istatistikController.cs",
+              "DocumentMoniker": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Controllers\\istatistikController.cs",
+              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Controllers\\istatistikController.cs",
+              "ToolTip": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Controllers\\istatistikController.cs",
+              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Controllers\\istatistikController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAwBUAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T22:40:52.076Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Alertler\\Index.cshtml",
+              "RelativeDocumentMoniker": "MvcOnlineTicariOtomasyon\\Views\\Alertler\\Index.cshtml",
+              "ToolTip": "C:\\Users\\TUNABERUT\\source\\repos\\MvcOnlineTicariOtomasyon\\MvcOnlineTicariOtomasyon\\Views\\Alertler\\Index.cshtml",
+              "RelativeToolTip": "MvcOnlineTicariOtomasyon\\Views\\Alertler\\Index.cshtml",
+              "ViewState": "AgIAABcAAAAAAAAAAAAcwCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-30T22:29:01.069Z"
             }
           ]
         }

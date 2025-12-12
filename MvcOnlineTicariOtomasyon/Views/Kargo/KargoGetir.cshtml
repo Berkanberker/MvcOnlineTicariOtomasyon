@@ -1,0 +1,97 @@
+@using MvcOnlineTicariOtomasyon.Models.NewFolder1.siniflar
+@model MvcOnlineTicariOtomasyon.Models.NewFolder1.siniflar.Kargo
+@{
+    ViewBag.Title = "Kargo Düzenle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<!-- Page Header -->
+<div class="page-header">
+    <h2><i class="fas fa-edit text-primary"></i> Kargo Düzenle</h2>
+    <p>Takip No: <strong class="text-primary">@Model.TakipNo</strong></p>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-truck"></i> Kargo Bilgileri
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("KargoGuncelle", "Kargo", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.KargoId)
+            @Html.HiddenFor(m => m.TakipNo)
+            @Html.HiddenFor(m => m.GonderimTarihi)
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Alıcı Adı Soyadı *</label>
+                        @Html.TextBoxFor(m => m.AliciAd, new { @class = "form-control", required = "required" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> Telefon</label>
+                        @Html.TextBoxFor(m => m.AliciTelefon, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label><i class="fas fa-city"></i> Şehir</label>
+                        @Html.TextBoxFor(m => m.AliciSehir, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label><i class="fas fa-info-circle"></i> Durum</label>
+                        <select name="Durum" class="form-control">
+                            <option value="Hazırlanıyor" @(Model.Durum == "Hazırlanıyor" ? "selected" : "")>Hazırlanıyor
+                            </option>
+                            <option value="Kargoya Verildi" @(Model.Durum == "Kargoya Verildi" ? "selected" : "")>Kargoya
+                                Verildi</option>
+                            <option value="Yolda" @(Model.Durum == "Yolda" ? "selected" : "")>Yolda</option>
+                            <option value="Teslim Edildi" @(Model.Durum == "Teslim Edildi" ? "selected" : "")>Teslim Edildi
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-map-marker-alt"></i> Adres *</label>
+                @Html.TextAreaFor(m => m.AliciAdres, new { @class = "form-control", rows = "3", required = "required" })
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <div class="alert alert-info">
+                        <i class="fas fa-calendar"></i> <strong>Gönderim Tarihi:</strong>
+                        @Model.GonderimTarihi.ToString("dd.MM.yyyy HH:mm")
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    @if (Model.TeslimTarihi.HasValue)
+                    {
+                        <div class="alert alert-success">
+                            <i class="fas fa-check-circle"></i> <strong>Teslim Tarihi:</strong>
+                            @Model.TeslimTarihi.Value.ToString("dd.MM.yyyy HH:mm")
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <a href="/Kargo/Index/" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Geri Dön
+                </a>
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-save"></i> Değişiklikleri Kaydet
+                </button>
+            </div>
+        }
+    </div>
+</div>

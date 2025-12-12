@@ -7,8 +7,10 @@
 <br />
 <h2>Yeni Kalem Sayfası</h2>
 <br />
-<form class="form-group" method="post">
 
+@using (Html.BeginForm("YeniKalem", "Fatura", FormMethod.Post, new { @class = "form-group" }))
+{
+    @Html.AntiForgeryToken()
 
     @Html.LabelFor(x => x.Aciklama)
     @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
@@ -19,22 +21,11 @@
     @Html.LabelFor(x => x.BirimFiyat)
     @Html.TextBoxFor(x => x.BirimFiyat, new { @class = "form-control" })
     <br />
-
     @Html.LabelFor(x => x.Tutar)
     @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control" })
     <br />
     @Html.LabelFor(x => x.Faturaid)
     @Html.TextBoxFor(x => x.Faturaid, new { @class = "form-control" })
-    
-
-  
-
-
-
-
-
     <br />
     <button class="btn btn-primary">Kaydet</button>
-
-</form>
-
+}

@@ -7,7 +7,8 @@
 <h2>Kategori Güncelleme</h2>
 <br />
 @using (Html.BeginForm("KategoriGuncelle", "Kategori", FormMethod.Post))
-            {
+{
+    @Html.AntiForgeryToken()
     <div class="form-group">
         @Html.LabelFor(x => x.KategoriAd)
         @Html.TextBoxFor(x => x.KategoriAd, new {@class ="form-control"})

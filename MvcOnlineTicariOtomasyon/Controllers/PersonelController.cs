@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -8,86 +9,151 @@ using MvcOnlineTicariOtomasyon.Models.NewFolder1.siniflar;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class PersonelController : Controller
     {
-        Context c = new Context();
+        // İzin verilen dosya uzantıları
+        private readonly string[] _allowedExtensions = { ".jpg", ".jpeg", ".png", ".gif" };
+        private const int MaxFileSize = 2 * 1024 * 1024; // 2MB
 
         public ActionResult Index()
         {
-            var degerler = c.Personels.ToList();
-            return View(degerler);
+            using (var c = new Context())
+            {
+                var degerler = c.Personels.Include("Departman").ToList();
+                return View(degerler);
+            }
         }
 
         [HttpGet]
         public ActionResult PersonelEkle()
         {
-            List<SelectListItem> deger1 = (from x in c.Departmans.ToList()
-                                           select new SelectListItem
-                                           {
-                                               Text = x.DepartmanAd,
-                                               Value = x.Departmanid.ToString()
-                                           }).ToList();
-            ViewBag.dgr1 = deger1;
-            return View();
+            using (var c = new Context())
+            {
+                List<SelectListItem> deger1 = (from x in c.Departmans
+                                               select new SelectListItem
+                                               {
+                                                   Text = x.DepartmanAd,
+                                                   Value = x.Departmanid.ToString()
+                                               }).ToList();
+                ViewBag.dgr1 = deger1;
+                return View();
+            }
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult PersonelEkle(Personel p)
         {
-            if (Request.Files.Count > 0)
+            using (var c = new Context())
             {
-                string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
-                string uzanti = Path.GetExtension(Request.Files[0].FileName);
-                string yol = "~/Image/" + dosyaadi + uzanti;
-                Request.Files[0].SaveAs(Server.MapPath(yol));
-                p.PersonelGorsel = "/Image/" + dosyaadi + uzanti;
+                if (Request.Files.Count > 0 && Request.Files[0].ContentLength > 0)
+                {
+                    var file = Request.Files[0];
+                    string uzanti = Path.GetExtension(file.FileName).ToLower();
+
+                    // Dosya uzantısı kontrolü
+                    if (!_allowedExtensions.Contains(uzanti))
+                    {
+                        TempData["Hata"] = "Sadece resim dosyaları yükleyebilirsiniz! (jpg, jpeg, png, gif)";
+                        return RedirectToAction("PersonelEkle");
+                    }
+
+                    // Dosya boyutu kontrolü
+                    if (file.ContentLength > MaxFileSize)
+                    {
+                        TempData["Hata"] = "Dosya boyutu 2MB'dan büyük olamaz!";
+                        return RedirectToAction("PersonelEkle");
+                    }
+
+                    // Benzersiz dosya adı oluştur
+                    string dosyaadi = Guid.NewGuid().ToString() + uzanti;
+                    string yol = "~/Image/" + dosyaadi;
+                    file.SaveAs(Server.MapPath(yol));
+                    p.PersonelGorsel = "/Image/" + dosyaadi;
+                }
+                c.Personels.Add(p);
+                c.SaveChanges();
+                return RedirectToAction("Index");
             }
-            c.Personels.Add(p);
-            c.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult PersonelGetir(int id)
         {
-            List<SelectListItem> deger1 = (from x in c.Departmans.ToList()
-                                           select new SelectListItem
-                                           {
-                                               Text = x.DepartmanAd,
-                                               Value = x.Departmanid.ToString()
-                                           }).ToList();
-            ViewBag.dgr1 = deger1;
-            var prs = c.Personels.Find(id);
-            return View(prs); // Doğrudan prs ile döndürüyoruz
+            using (var c = new Context())
+            {
+                List<SelectListItem> deger1 = (from x in c.Departmans
+                                               select new SelectListItem
+                                               {
+                                                   Text = x.DepartmanAd,
+                                                   Value = x.Departmanid.ToString()
+                                               }).ToList();
+                ViewBag.dgr1 = deger1;
+                var prs = c.Personels.Find(id);
+                if (prs == null)
+                {
+                    TempData["Hata"] = "Personel bulunamadı!";
+                    return RedirectToAction("Index");
+                }
+                return View(prs);
+            }
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult PersonelGuncelle(Personel p)
         {
-            if (Request.Files.Count > 0)
+            using (var c = new Context())
             {
-                string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
-                string uzanti = Path.GetExtension(Request.Files[0].FileName);
-                string yol = "~/Image/" + dosyaadi + uzanti;
-                Request.Files[0].SaveAs(Server.MapPath(yol));
-                p.PersonelGorsel = "/Image/" + dosyaadi + uzanti;
-            }
-            var prsn = c.Personels.Find(p.Personelid);
-            if (prsn != null)
-            {
+                var prsn = c.Personels.Find(p.Personelid);
+                if (prsn == null)
+                {
+                    TempData["Hata"] = "Personel bulunamadı!";
+                    return RedirectToAction("Index");
+                }
+
+                if (Request.Files.Count > 0 && Request.Files[0].ContentLength > 0)
+                {
+                    var file = Request.Files[0];
+                    string uzanti = Path.GetExtension(file.FileName).ToLower();
+
+                    // Dosya uzantısı kontrolü
+                    if (!_allowedExtensions.Contains(uzanti))
+                    {
+                        TempData["Hata"] = "Sadece resim dosyaları yükleyebilirsiniz! (jpg, jpeg, png, gif)";
+                        return RedirectToAction("PersonelGetir", new { id = p.Personelid });
+                    }
+
+                    // Dosya boyutu kontrolü
+                    if (file.ContentLength > MaxFileSize)
+                    {
+                        TempData["Hata"] = "Dosya boyutu 2MB'dan büyük olamaz!";
+                        return RedirectToAction("PersonelGetir", new { id = p.Personelid });
+                    }
+
+                    // Benzersiz dosya adı oluştur
+                    string dosyaadi = Guid.NewGuid().ToString() + uzanti;
+                    string yol = "~/Image/" + dosyaadi;
+                    file.SaveAs(Server.MapPath(yol));
+                    prsn.PersonelGorsel = "/Image/" + dosyaadi;
+                }
+
                 prsn.PersonelAd = p.PersonelAd;
                 prsn.PersonelSoyad = p.PersonelSoyad;
-                prsn.PersonelGorsel = p.PersonelGorsel;
                 prsn.Departmanid = p.Departmanid;
                 c.SaveChanges();
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
         }
 
         public ActionResult PersonelListe()
         {
-            var sorgu = c.Personels.ToList();
-            return View(sorgu);
+            using (var c = new Context())
+            {
+                var sorgu = c.Personels.Include("Departman").ToList();
+                return View(sorgu);
+            }
         }
     }
 }

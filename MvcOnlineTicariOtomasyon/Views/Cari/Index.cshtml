@@ -1,39 +1,120 @@
 ﻿@using MvcOnlineTicariOtomasyon.Models.NewFolder1.siniflar
 @model List<Cariler>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Cariler";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
-<br />
-<table class="table table-striped">
 
-    <tr>
+@Html.AntiForgeryToken()
 
-        <th>Cari ID</th>
-        <th>Ad</th>
-        <th>Soyad</th>
-        <th>Şehir</th>
-        <th>Mail</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
-        <th>Detaylar</th>
+<!-- Page Header -->
+<div class="page-header">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <h2><i class="fas fa-users text-primary"></i> Cari Yönetimi</h2>
+            <p>Müşterilerinizi buradan yönetebilirsiniz</p>
+        </div>
+        <a href="/Cari/YeniCari/" class="btn btn-primary">
+            <i class="fas fa-user-plus"></i> Yeni Cari Ekle
+        </a>
+    </div>
+</div>
 
-    </tr>
-    @foreach(var x in Model)
-            {
-        <tr>
-            <td>@x.Cariid</td>
-            <td>@x.CariAd</td>
-            <td>@x.CarSoyad</td>
-            <td>@x.CariSehri</td>
-            <td>@x.CariMail</td>
-            <td><a href="/Cari/CariSil/@x.Cariid" class="btn btn-danger">Sil</a></td>
-            <td><a href="/Cari/CariGetir/@x.Cariid" class="btn btn-warning">Güncelle</a></td>
-            <td><a href="/Cari/MusteriSatis/@x.Cariid" class="btn btn-default" style="background-color:lightcoral">Satış Geçmişi</a></td>
-         
+<!-- Customers Card -->
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-address-book"></i> Cari Listesi</span>
+        <span class="badge badge-primary">@Model.Count müşteri</span>
+    </div>
+    <div class="card-body">
+        @if (Model.Count == 0)
+        {
+            <div class="empty-state">
+                <i class="fas fa-users"></i>
+                <h4>Henüz cari eklenmemiş</h4>
+                <p>Yeni bir müşteri ekleyerek başlayın</p>
+                <a href="/Cari/YeniCari/" class="btn btn-primary mt-3">
+                    <i class="fas fa-plus"></i> İlk Cariyi Ekle
+                </a>
+            </div>
+        }
+        else
+        {
+            <table class="table data-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Müşteri</th>
+                        <th>Şehir</th>
+                        <th>E-posta</th>
+                        <th>Durum</th>
+                        <th class="text-center">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@x.Cariid</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar-circle mr-3">
+                                        <span class="initials">@x.CariAd?.Substring(0, 1).ToUpper()@x.CarSoyad?.Substring(0, 1).ToUpper()</span>
+                                    </div>
+                                    <div>
+                                        <strong>@x.CariAd @x.CarSoyad</strong>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <i class="fas fa-map-marker-alt text-muted mr-1"></i>
+                                @x.CariSehri
+                            </td>
+                            <td>
+                                <a href="mailto:@x.CariMail" class="text-primary">
+                                    <i class="fas fa-envelope mr-1"></i>@x.CariMail
+                                </a>
+                            </td>
+                            <td>
+                                <span class="status-active">Aktif</span>
+                            </td>
+                            <td>
+                                <div class="action-btns justify-content-center">
+                                    <a href="/Cari/MusteriSatis/@x.Cariid" class="btn btn-sm btn-info" title="Satış Geçmişi">
+                                        <i class="fas fa-history"></i>
+                                    </a>
+                                    <a href="/Cari/CariGetir/@x.Cariid" class="btn btn-sm btn-success" title="Düzenle">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <button type="button" class="btn btn-sm btn-danger" 
+                                            onclick="confirmDelete('/Cari/CariSil/@x.Cariid', '@x.CariAd @x.CarSoyad')" 
+                                            title="Sil">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>
 
-        </tr>
-            }
-</table>
-<a href="/Cari/YeniCari/" class="btn btn-info ">Yeni Cari Ekle</a>
-
+<style>
+    .avatar-circle {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .initials {
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.85rem;
+    }
+</style>

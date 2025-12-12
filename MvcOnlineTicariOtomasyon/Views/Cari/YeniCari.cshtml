@@ -5,11 +5,11 @@
 }
 <br />
 <h2>Yeni Cari Sayfası</h2>
+<br />
 
-<br />
-<h2>Yeni Departman Sayfası</h2>
-<br />
-<form class="form-group" method="post">
+@using (Html.BeginForm("YeniCari", "Cari", FormMethod.Post, new { @class = "form-group" }))
+{
+    @Html.AntiForgeryToken()
 
     @Html.LabelFor(x => x.CariAd)
     @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
@@ -21,20 +21,11 @@
 
     @Html.LabelFor(x => x.CariSehri)
     @Html.TextBoxFor(x => x.CariSehri, new { @class = "form-control" })
-
     <br />
 
     @Html.LabelFor(x => x.CariMail)
     @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
-
     <br />
 
-
-
-
-
-
-
     <button class="btn btn-info">Kaydet</button>
-
-</form>
+}

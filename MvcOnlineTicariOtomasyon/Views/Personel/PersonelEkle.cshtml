@@ -6,9 +6,16 @@
 <br />
 <h2>Yeni Personel Sayfası</h2>
 <br />
-<form class="form-group" method="post">
 
+@if (TempData["Hata"] != null)
+{
+    <div class="alert alert-danger">@TempData["Hata"]</div>
+}
 
+@using (Html.BeginForm("PersonelEkle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-group" }))
+{
+    @Html.AntiForgeryToken()
+    
     @Html.LabelFor(x => x.PersonelAd)
     @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
     <br />
@@ -16,18 +23,12 @@
     @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
     <br />
     @Html.LabelFor(x => x.PersonelGorsel)
-    @*@Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })*@
-    <input type="file" name="PersonelGorsel" />
+    <input type="file" name="PersonelGorsel" class="form-control" />
     <br />
    
     @Html.LabelFor(x => x.Departman)
-    @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.deger1, new
-    { @class = "form-control" })
+    @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
    
-
     <br />
     <button class="btn btn-primary">Kaydet</button>
-
-</form>
-
-
+}

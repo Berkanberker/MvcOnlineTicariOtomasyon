@@ -12,6 +12,7 @@
 <br />
 @using (Html.BeginForm("CariGuncelle", "Cari", FormMethod.Post))
 {
+    @Html.AntiForgeryToken()
     <div class="form-group">
         @Html.HiddenFor(x => x.Cariid)
         @Html.LabelFor(x => x.CariAd)

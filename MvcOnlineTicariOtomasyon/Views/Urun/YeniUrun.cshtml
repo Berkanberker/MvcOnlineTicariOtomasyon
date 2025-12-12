@@ -6,9 +6,16 @@
 <br />
 <h2>Yeni Ürün Sayfası</h2>
 <br />
-<form class="form-group" method="post">
 
-  
+@if (TempData["Hata"] != null)
+{
+    <div class="alert alert-danger">@TempData["Hata"]</div>
+}
+
+@using (Html.BeginForm("YeniUrun", "Urun", FormMethod.Post, new { @class = "form-group" }))
+{
+    @Html.AntiForgeryToken()
+   
     @Html.LabelFor(x => x.UrunAd)
     @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control" })
     <br />
@@ -24,17 +31,11 @@
     @Html.LabelFor(x => x.SatisFiyat)
     @Html.TextBoxFor(x => x.SatisFiyat, new { @class = "form-control" })
     <br />
-    @Html.LabelFor(x=>x.Kategori.KategoriID)
-    @Html.DropDownListFor(x=>x.Kategoriid, (List<SelectListItem>)ViewBag.deger1, new
-    { @class ="form-control"})
-    @*@Html.TextBoxFor(x => x.Kategoriid, new { @class = "form-control" })*@
+    @Html.LabelFor(x => x.Kategori.KategoriID)
+    @Html.DropDownListFor(x => x.Kategoriid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
     <br />
     @Html.LabelFor(x => x.UrunGorsel)
     @Html.TextBoxFor(x => x.UrunGorsel, new { @class = "form-control" })
     <br />
-    @Html.LabelFor(x => x.Durum)
-    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
-    <br />
     <button class="btn btn-primary">Kaydet</button>
-
-</form>
+}

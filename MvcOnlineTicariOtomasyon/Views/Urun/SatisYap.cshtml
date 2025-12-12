@@ -6,7 +6,16 @@
 <br />
 <h2>Satış Yap</h2>
 <br />
-<form class="form-group" method="post">
+
+@if (TempData["Hata"] != null)
+{
+    <div class="alert alert-danger">@TempData["Hata"]</div>
+}
+
+@using (Html.BeginForm("SatisYap", "Urun", FormMethod.Post, new { @class = "form-group" }))
+{
+    @Html.AntiForgeryToken()
+    
     @Html.LabelFor(x => x.Urunid)
     <input type="text" name="Urunid" value="@ViewBag.dgr1" class="form-control" readonly />
     <br />
@@ -27,8 +36,8 @@
    
     <br />
     <button class="btn btn-primary">Satış Yap</button>
-</form>
-<br />
+}
+
 <script>
     function sum() {
         var sayi1 = document.getElementById('txt1').value;

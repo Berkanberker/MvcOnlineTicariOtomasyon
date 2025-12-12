@@ -7,15 +7,18 @@ using MvcOnlineTicariOtomasyon.Models.NewFolder1.siniflar;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class FaturaController : Controller
     {
-        Context c = new Context();
-        // GET: Fatura
         public ActionResult Index()
         {
-            var liste = c.Faturalars.ToList();
-            return View(liste);
+            using (var c = new Context())
+            {
+                var liste = c.Faturalars.ToList();
+                return View(liste);
+            }
         }
+
         [HttpGet]
         public ActionResult FaturaEkle()
         {
@@ -23,50 +26,81 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult FaturaEkle(Faturalar f)
         {
-            c.Faturalars.Add(f);
-            c.SaveChanges();
-            return RedirectToAction("Index");
-
+            using (var c = new Context())
+            {
+                c.Faturalars.Add(f);
+                c.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
+
+        [HttpGet]
         public ActionResult FaturaGetir(int id)
         {
-            var fatura=c.Faturalars.Find(id);
-            return View("FaturaGetir",fatura);
+            using (var c = new Context())
+            {
+                var fatura = c.Faturalars.Find(id);
+                if (fatura == null)
+                {
+                    TempData["Hata"] = "Fatura bulunamadı!";
+                    return RedirectToAction("Index");
+                }
+                return View("FaturaGetir", fatura);
+            }
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult FaturaGuncelle(Faturalar f)
         {
-            var fatura=c.Faturalars.Find(f.Faturaid);
-            fatura.FaturaSeriNo= f.FaturaSeriNo;
-            fatura.FaturaSıraNo=f.FaturaSıraNo;
-            fatura.Saat=f.Saat;
-            fatura.Tarih=f.Tarih;
-            fatura.TeslimAlan=f.TeslimAlan;
-            fatura.TeslimEden=f.TeslimEden; 
-            fatura.VergiDairesi=f.VergiDairesi;
-            c.SaveChanges();
-            return RedirectToAction("Index");
-
-
-
+            using (var c = new Context())
+            {
+                var fatura = c.Faturalars.Find(f.Faturaid);
+                if (fatura == null)
+                {
+                    TempData["Hata"] = "Fatura bulunamadı!";
+                    return RedirectToAction("Index");
+                }
+                fatura.FaturaSeriNo = f.FaturaSeriNo;
+                fatura.FaturaSıraNo = f.FaturaSıraNo;
+                fatura.Saat = f.Saat;
+                fatura.Tarih = f.Tarih;
+                fatura.TeslimAlan = f.TeslimAlan;
+                fatura.TeslimEden = f.TeslimEden;
+                fatura.VergiDairesi = f.VergiDairesi;
+                c.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
+
         public ActionResult FaturaDetay(int id)
         {
-            var degerler = c.FaturaKalems.Where(x => x.Faturaid == id).ToList();
-           
-            return View(degerler);
+            using (var c = new Context())
+            {
+                var degerler = c.FaturaKalems.Where(x => x.Faturaid == id).ToList();
+                return View(degerler);
+            }
         }
+
         [HttpGet]
         public ActionResult YeniKalem()
         {
-             return View();
+            return View();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult YeniKalem(FaturaKalem p)
         {
-            c.FaturaKalems.Add(p);
-            c.SaveChanges();
-            return RedirectToAction("Index");
+            using (var c = new Context())
+            {
+                c.FaturaKalems.Add(p);
+                c.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
     }
 }

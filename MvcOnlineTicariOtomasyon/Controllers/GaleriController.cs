@@ -5,16 +5,18 @@ using System.Web;
 using System.Web.Mvc;
 using MvcOnlineTicariOtomasyon.Models.NewFolder1.siniflar;
 
-namespace MvcOnlineTicariOtomasyon.Controllers { 
-
-public class GaleriController : Controller
+namespace MvcOnlineTicariOtomasyon.Controllers
 {
-    // GET: Galeri
-    Context c = new Context();
-    public ActionResult Index()
+    [Authorize]
+    public class GaleriController : Controller
     {
-        var degerler = c.Uruns.ToArray().ToList();
-        return View(degerler);
+        public ActionResult Index()
+        {
+            using (var c = new Context())
+            {
+                var degerler = c.Uruns.ToList();
+                return View(degerler);
+            }
+        }
     }
-  }
 }

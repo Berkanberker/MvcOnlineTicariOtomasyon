@@ -1,174 +1,471 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
-<!--A Design by W3layouts
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <title>Mvc5 Online Ticari Otomasyon</title>
-    <!-- custom-theme -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Project Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-    <script type="application/x-javascript">
-        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-               function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <!-- //custom-theme -->
-    <!-- Google fonts -->
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext" rel="stylesheet">
-    <!-- Google fonts -->
-    <!-- css files -->
-    <link href="~/weblogin/css/style.css" type="text/css" rel="stylesheet" media="all">
-    <!-- //css files -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticari Otomasyon - Giriş</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <link rel="stylesheet" href="~/weblogin/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #4a1942 100%);
+            overflow: hidden;
+            position: relative;
+        }
 
-    <link href="~/weblogin/css/popup-box.css" rel="stylesheet" type="text/css" media="all" /> <!-- popup box css -->
+        /* Animated background circles */
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            animation: float 8s ease-in-out infinite;
+        }
 
+        .bg-circle:nth-child(1) {
+            width: 400px;
+            height: 400px;
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .bg-circle:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            bottom: -50px;
+            right: -50px;
+            animation-delay: 2s;
+        }
+
+        .bg-circle:nth-child(3) {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            animation-delay: 4s;
+        }
+
+        @@keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .login-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            margin: 20px;
+        }
+
+        .login-left {
+            flex: 1;
+            padding: 60px 50px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-left h1 {
+            color: #fff;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .login-left h2 {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .login-left p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .features {
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .feature-item i {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1rem;
+        }
+
+        .login-right {
+            flex: 1;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 5px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .tab-btn:hover:not(.active) {
+            color: #fff;
+        }
+
+        .form-container {
+            display: none;
+        }
+
+        .form-container.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @@keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px 20px;
+            padding-left: 50px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .form-group i {
+            position: absolute;
+            left: 18px;
+            top: 45px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 1rem;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+            margin-top: 10px;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+        }
+
+        .btn-login:active {
+            transform: translateY(0);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 25px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .form-footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .divider span {
+            padding: 0 15px;
+        }
+
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .alert {
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .alert-danger {
+            background: rgba(220, 53, 69, 0.2);
+            border: 1px solid rgba(220, 53, 69, 0.3);
+            color: #ff6b6b;
+        }
+
+        @@media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+            }
+            
+            .login-left {
+                padding: 40px 30px;
+            }
+            
+            .login-right {
+                padding: 40px 30px;
+            }
+            
+            .login-left h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
-<!-- body starts -->
 <body>
+    <!-- Background circles -->
+    <div class="bg-circle"></div>
+    <div class="bg-circle"></div>
+    <div class="bg-circle"></div>
 
-    <!-- section -->
-    <section class="register">
-        <div class="header">
-            <div class="logo">
-                <a href="#">Gİrİş Formu</a>
+    <div class="login-container">
+        <!-- Left Side -->
+        <div class="login-left">
+            <h1>Ticari Otomasyon</h1>
+            <h2>Profesyonel İş Yönetimi</h2>
+            <p>
+                Modern ve güvenli ticari otomasyon sistemiyle işlerinizi kolayca yönetin. 
+                Satış, stok, müşteri ve personel takibini tek platformda yapın.
+            </p>
+            <div class="features">
+                <div class="feature-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Gerçek zamanlı satış takibi</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-boxes"></i>
+                    <span>Akıllı stok yönetimi</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-users"></i>
+                    <span>Müşteri ilişkileri yönetimi</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Güvenli veri koruma</span>
+                </div>
             </div>
-            <div class="social">
-                <li><a href="https://www.facebook.com/murattyucedag/"><span class="fa fa-facebook"></span></a></li>
-                <li><a href="https://www.twitter.com/"><span class="fa fa-twitter"></span></a></li>
-                <li><a href="https://www.linkedin.com/"><span class="fa fa-linkedin"></span></a></li>
-                <li><a href="https://www.gmail.com/"><span class="fa fa-google-plus"></span></a></li>
-                <li><a href="https://www.youtube.com/"><span class="fa fa-youtube"></span></a></li>
-                <li><a href="https://github.com/MuratYucedag"><span class="fa fa-github"></span></a></li>
-            </div>
-            <div class="clear"></div>
         </div>
 
-        <div class="register-full">
-            <div class="register-left">
-                <div class="register">
-                    <h1>Asp.Net Mvc5 ile</h1>
-                    <h2>Dinamik Web Projesi Geliştirme</h2>
-                    <p>
-                        Admin, Personel kişisel sayfası ve cari kişisel sayfası olmak üzere 3 tane temel yapımız bulunmaktadır. Giriş yapmak istediğiniz yetki durumunuza göre sağ taraftan ilgili menüyü seçin.
-                    </p>
-                    <div class="content3">
-                        <ul>
-                            <li><a class="" href="#">Firmalar</a></li>
-                            <li><a class="read" href="#">Ürünlerimiz</a></li>
-                        </ul>
-                    </div>
-                </div>
+        <!-- Right Side - Login Forms -->
+        <div class="login-right">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="showTab('personel')">
+                    <i class="fas fa-user-tie"></i> Personel
+                </button>
+                <button class="tab-btn" onclick="showTab('cari')">
+                    <i class="fas fa-building"></i> Cari
+                </button>
             </div>
-            <div class="register-right">
-                <div class="register-in">
-                    <a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog2">kayıt ol»</a>
-                </div>
-                <div class="register-in middle">
-                    <a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog">cari girişi »</a>
-                </div>
-                <div class="register-in">
-                    <a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog1">personel girişi »</a>
-                </div>
-                <div class="clear"> </div>
-            </div>
-            <div class="clear"> </div>
-        </div>
-        <!-- copyright -->
-        <p class="agile-copyright">© 2020 Project. Tüm Hakları Saklıdır | Design by <a href="https://w3layouts.com/" target="_blank">W3layouts</a></p>
-        <!-- //copyright -->
-    </section>
-    <!-- //section -->
-    <!-- login form popup-->
-    <div class="pop-up">
-        <div id="small-dialog" class="mfp-hide book-form">
-            <div class="login-form login-form-left">
-                <div class="agile-row">
-                    <h3>Cari Giriş Formu</h3>
-                    <span class="fa fa-lock"></span>
-                    <div class="clear"></div>
-                    <div class="login-agileits-top">
-                        @using (Html.BeginForm("CariLogin1", "Login", FormMethod.Post))
-                        {
-                            <input type="text" class="name" name="CariMail" Placeholder="Mail Adresiniz" required="" />
-                            <input type="password" class="password" name="CariSifre" Placeholder="Şifreniz" required="" />
-                            <input type="submit" value="Giriş Yap">
-                        }
+
+            <!-- Personel Login Form -->
+            <div class="form-container active" id="personel-form">
+                @if (TempData["Hata"] != null)
+                {
+                    <div class="alert alert-danger">@TempData["Hata"]</div>
+                }
+                @using (Html.BeginForm("AdminLogin", "Login", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <label>Kullanıcı Adı</label>
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="KullaniciAd" placeholder="Kullanıcı adınızı girin" required>
                     </div>
-                    <div class="login-agileits-bottom">
-                        <h6><a href="#">Şifremi Unuttum?</a></h6>
+                    <div class="form-group">
+                        <label>Şifre</label>
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="Sifre" placeholder="Şifrenizi girin" required>
                     </div>
+                    <button type="submit" class="btn-login">
+                        <i class="fas fa-sign-in-alt"></i> Giriş Yap
+                    </button>
+                }
+                <div class="divider"><span>veya</span></div>
+                <div class="social-login">
+                    <a href="#" class="social-btn"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-microsoft"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
 
+            <!-- Cari Login Form -->
+            <div class="form-container" id="cari-form">
+                @using (Html.BeginForm("CariLogin1", "Login", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <label>E-posta Adresi</label>
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" name="CariMail" placeholder="E-posta adresinizi girin" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Şifre</label>
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="CariSifre" placeholder="Şifrenizi girin" required>
+                    </div>
+                    <button type="submit" class="btn-login">
+                        <i class="fas fa-sign-in-alt"></i> Giriş Yap
+                    </button>
+                }
+                <div class="form-footer">
+                    Hesabınız yok mu? <a href="#">Kayıt Olun</a>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- //login form popup-->
-    <!-- subscribe form popup-->
-    <div class="pop-up">
-        <div id="small-dialog1" class="mfp-hide book-form">
 
-            <div class="login-form login-form-left">
-                <div class="agile-row">
-                    <h3>Personel Formu Girişi</h3>
-                    <div class="clear"></div>
-                    <div class="login-agileits-top">
-                        @using (Html.BeginForm("AdminLogin", "Login", FormMethod.Post))
-                        {
-                            <input type="text" class="name" name="KullaniciAd" Placeholder="Kullanıcı Adı" required="" />
-                            <input type="password" class="password" name="Sifre" Placeholder="Şifre" required="" />
-                            <input type="submit" value="Giriş Yap">
-                        }
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <!-- //subscribe form popup-->
-    <!-- register form popup-->
-    <div class="pop-up">
-        <div id="small-dialog2" class="mfp-hide book-form">
-
-            @Html.Action("Partial1", "Login")
-
-        </div>
-    </div>
-    <!-- //register form popup-->
-    <!-- js -->
-    <script type="text/javascript" src="~/weblogin/js/jquery-2.1.4.min.js"></script>
-    <!-- //js -->
-    <!--popup-js-->
-    <script src="~/weblogin/js/jquery.magnific-popup.js" type="text/javascript"></script>
     <script>
-        $(document).ready(function () {
-            $('.popup-with-zoom-anim').magnificPopup({
-                type: 'inline',
-                fixedContentPos: false,
-                fixedBgPos: true,
-                overflowY: 'auto',
-                closeBtnInside: true,
-                preloader: false,
-                midClick: true,
-                removalDelay: 300,
-                mainClass: 'my-mfp-zoom-in'
-            });
-
-        });
+        function showTab(tabName) {
+            // Remove active from all tabs and forms
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.form-container').forEach(form => form.classList.remove('active'));
+            
+            // Add active to selected
+            event.target.closest('.tab-btn').classList.add('active');
+            document.getElementById(tabName + '-form').classList.add('active');
+        }
     </script>
-    <!--//popup-js-->
-
 </body>
-<!-- //body ends -->
 </html>

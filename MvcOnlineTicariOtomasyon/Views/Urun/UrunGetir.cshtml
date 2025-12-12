@@ -9,8 +9,7 @@
 
 @using (Html.BeginForm("UrunGuncelle", "Urun", FormMethod.Post))
 {
-
-
+    @Html.AntiForgeryToken()
 
     @Html.HiddenFor(x=>x.Urunid )
     @Html.LabelFor(x => x.UrunAd)
@@ -29,7 +28,7 @@
     @Html.TextBoxFor(x => x.SatisFiyat, new { @class = "form-control" })
     <br />
     @Html.LabelFor(x => x.Kategori.KategoriID)
-    @Html.DropDownListFor(x => x.Kategoriid, (List<SelectListItem>)ViewBag.deger1, new
+    @Html.DropDownListFor(x => x.Kategoriid, (List<SelectListItem>)ViewBag.dgr1, new
     { @class = "form-control" })
     @*@Html.TextBoxFor(x => x.Kategoriid, new { @class = "form-control" })*@
     <br />

@@ -9,8 +9,7 @@
 
 @using (Html.BeginForm("FaturaGuncelle", "Fatura", FormMethod.Post))
 {
-
-
+    @Html.AntiForgeryToken()
 
     @Html.HiddenFor(x =>x.Faturaid)
     @Html.LabelFor(x => x.FaturaSeriNo)
